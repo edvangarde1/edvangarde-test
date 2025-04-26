@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>EDVANGARDE</title>
+	<link rel="shortcut icon" href="img/logoBK.png" />
+
+	<!-- Load font awesome icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	 crossorigin="anonymous">
+
+	<!-- owl carousel libraries -->
+	<link rel="stylesheet" href="js/owlcarousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="js/owlcarousel/owl.theme.default.min.css">
+	<script src="js/Jquery/Jquery.min.js"></script>
+	<script src="js/owlcarousel/owl.carousel.min.js"></script>
+
+
+
+	<!-- our files -->
+	<!-- css -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/topnav.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/banner.css">
+	<link rel="stylesheet" href="css/taikhoan.css">
+	<link rel="stylesheet" href="css/trangchu.css">
+	<link rel="stylesheet" href="css/home_products.css">
+	<link rel="stylesheet" href="css/pagination_phantrang.css">
+	<link rel="stylesheet" href="css/footer.css">
+	<!-- js -->
+	<script src="data/products.js"></script>
+	<script src="js/classes.js"></script>
+	<script src="js/dungchung.js"></script>
+	<script src="js/trangchu.js"></script>
+
+</head>
+
+<body>
+	<script> addTopNav(); </script>
+
+	<section>
+		<script> addHeader(); </script>
+
+		<div class="banner">
+			<div class="owl-carousel owl-theme"></div>
+		</div> <!-- Kết thúc Banner -->
+
+		<img src="img/banners/blackFriday.gif" alt="" style="width: 100%;">
+
+		<br>
+		<div class="companyMenu group flexContain"></div>
+
+		<div class="choosedFilter flexContain">
+			<a id="deleteAllFilter" style="display: none;">
+				<h3>Xóa bộ lọc</h3>
+			</a>
+		</div> <!-- Những bộ lọc đã chọn -->
+		<hr>
+		<!-- Mặc định mới vào trang sẽ ẩn đi, nế có filter thì mới hiện lên -->
+		<div class="contain-products" style="display:none"> 
+			<div class="filterName">
+				<input type="text" placeholder="Lọc trong trang theo tên..." onkeyup="filterProductsName(this)">
+			</div> <!-- End FilterName -->
+
+			<ul id="products" class="homeproduct group flexContain">
+				<div id="khongCoSanPham">
+					<i class="fa fa-times-circle"></i>
+					Không có sản phẩm nào
+				</div> <!-- End Khong co san pham -->
+			</ul><!-- End products -->
+
+			<div class="pagination"></div>
+		</div>
+
+		<!-- Div hiển thị khung sp hot, khuyến mãi, mới ra mắt ... -->
+		<div class="contain-khungSanPham" ></div>
+
+	</section> <!-- End Section -->
+
+	<script>
+		addContainTaiKhoan(); addPlc();
+	</script>
+
+	<div class="footer"><script>addFooter();</script></div>
+	<style>
+		#goto-top-page {
+			position: fixed; /* để nó "dính" vào góc màn hình */
+			bottom: 20px;    /* cách đáy 20px */
+			left: 8px;     /* cách lề trái20px */
+			font-size: 30px; /* chỉnh kích thước icon nếu muốn */
+			cursor: pointer; /* đổi con trỏ khi hover */
+		}
+		</style>
+		
+		<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+		<script>
+			if (window.innerWidth >= 1440) {
+			  document.body.style.zoom = "115%";
+			}
+		  </script>
+	<script type="module" defer>
+		import Chatbot from "https://edvangarde1.github.io/chatbot/updated_embed.js";
+		Chatbot.init({
+		  "n8nChatUrl": "https://nhuan99.app.n8n.cloud/webhook/4eaf2e3a-2316-4e3a-ada4-ed8706f06238/chat",
+		  "theme": {
+			"button": {
+			  "backgroundColor": "#111173",
+			  "right": 5,
+			  "bottom": 15,
+			  "size": 65,
+			  "iconColor": "#FFFFFF",
+			  "customIconSrc": "img/logochatbot.png",
+			  "autoWindowOpen": {
+				"autoOpen": true,
+				"openDelay": 2
+			  }
+			},
+			"tooltip": {
+			  "showTooltip": true,
+			  "tooltipMessage": "🤖 Xin chào bạn 👋",
+			  "tooltipBackgroundColor": "#F0F0F9",
+			  "tooltipTextColor": "#1c1c1c",
+			  "tooltipFontSize": 14
+			},
+			"chatWindow": {
+			  "showTitle": true,
+			  "title": "EDVANGARDE AGENT",
+			  "titleAvatarSrc": "img/logochatbot.png",
+			  "welcomeMessage": "Chào bạn, bạn đang cần tìm gì ạ?",
+			  "errorMessage": "This is a custom error message",
+			  "backgroundColor": "#ffffff",
+			  "height": 609,
+			  "width": 500,
+			  "fontSize": 15,
+			  "starterPrompts": [
+				"Tôi cần Bài giảng Đại số",
+				"Tôi cần Giáo trình PLĐC"
+			  ],
+			  "starterPromptFontSize": 14,
+			  "clearChatOnReload": false,
+			  "botMessage": {
+				"backgroundColor": "#F0F0F9",
+				"textColor": "#050505",
+				"showAvatar": true,
+				"avatarSrc": "img/logochatbot.png"
+			  },
+			  "userMessage": {
+				"backgroundColor": "#F0F0F9",
+				"textColor": "#050505",
+				"showAvatar": true,
+				"avatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg"
+			  },
+			  "textInput": {
+				"placeholder": "Type your query",
+				"backgroundColor": "#ffffff",
+				"textColor": "#1e1e1f",
+				"sendButtonColor": "#111173",
+				"maxChars": 100,
+				"maxCharsWarningMessage": "Bạn đã vượt quá giới hạn ký tự. Vui lòng nhập ít hơn 100 ký tự.",
+				"autoFocus": false
+			  }
+			}
+		  }
+		});
+	  </script>
+</body>
+
+</html>
