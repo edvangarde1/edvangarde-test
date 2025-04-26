@@ -37,61 +37,6 @@
 	<script src="js/classes.js"></script>
 	<script src="js/dungchung.js"></script>
 	<script src="js/trangchu.js"></script>
- <!-- ✅ Thêm CSS cho logo -->
- <style>
-#chat-logo {
-  position: fixed;
-  bottom: 10px; /* trùng với JustChat */
-  right: 10px;
-  z-index: 10001; /* cao hơn JustChat */
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-#chat-logo img {
-  width: 80px;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-    #chat-logo:hover img {
-      transform: rotate(15deg);
-    }
-
-    #chat-logo::after {
-      content: "Nhấn để chat";
-      position: absolute;
-      right: 70px;
-      bottom: 10px;
-      background: #1E40AF;
-      color: white;
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 13px;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-
-    #chat-logo:hover::after {
-      opacity: 1;
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translate(0, 0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-2px, 2px); }
-      80% { transform: translate(2px, -2px); }
-    }
-
-    .shake {
-      animation: shake 0.5s;
-    }
-  </style>
-</head>
 
 <body>
 	<script> addTopNav(); </script>
@@ -142,73 +87,7 @@
 	<div class="footer"><script>addFooter();</script></div>
 
 	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
- <!-- ✅ Logo -->
- <div id="chat-logo">
-    <img src="img/logochatbot.png" alt="Logo BKHN" />
-  </div>
 
- 
-<!-- ✅ Script mới: dùng pointerEvents để tránh bị logo cản -->
-<script>
-	window.addEventListener("load", () => {
-	  const logo = document.getElementById("chat-logo");
-  
-	  logo.addEventListener("click", () => {
-		// 👉 Tạm thời cho phép click xuyên qua logo
-		logo.style.pointerEvents = "none";
-  
-		// 👉 Delay nhẹ để browser cập nhật pointer-events trước khi click
-		setTimeout(() => {
-		  (function tryClick(i = 0) {
-			const btn = document.querySelector(".just-chat-toggle-button");
-  
-			if (btn) {
-			  const rect = btn.getBoundingClientRect();
-			  const centerX = rect.left + rect.width / 2;
-			  const centerY = rect.top + rect.height / 2;
-			  const element = document.elementFromPoint(centerX, centerY);
-  
-			  if (element) {
-				const event = new MouseEvent("click", {
-				  view: window,
-				  bubbles: true,
-				  cancelable: true,
-				  clientX: centerX,
-				  clientY: centerY,
-				});
-				element.dispatchEvent(event);
-			  }
-  
-			  // 🔁 Bật lại tương tác với logo
-			  logo.style.pointerEvents = "auto";
-			} else if (i < 50) {
-			  setTimeout(() => tryClick(i + 1), 100);
-			} else {
-			  logo.style.pointerEvents = "auto";
-			}
-		  })();
-		}, 50); // 🕓 50ms là đủ để trình duyệt cập nhật pointer
-	  });
-  
-	  // ✅ Hiệu ứng rung
-	  setInterval(() => {
-		logo.classList.add("shake");
-		setTimeout(() => logo.classList.remove("shake"), 500);
-	  }, 6000);
-	});
-  </script>
-
-	  
-  <script src="https://cdn.jsdelivr.net/npm/@kieng/just-chat/dist/just-chat.umd.js"
-  data-webhook-url="https://nhuan2000100.app.n8n.cloud/webhook/chat-agent"
-  data-theme-color="#1E40AF"
-  data-position="bottom-right"
-  data-title="XIN CHÀO"
-  data-welcome-message="Mình có thể giúp gì cho bạn hôm nay?"
-  data-history-enabled="true"
-  data-history-clear-button="true"
-  defer>
-</script>
 </body>
 
 </html>
