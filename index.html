@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 	<title>EDVANGARDE</title>
 	<link rel="shortcut icon" href="img/logoBK.png" />
 
 	<!-- Load font awesome icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-	 crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
 
 	<!-- owl carousel libraries -->
 	<link rel="stylesheet" href="js/owlcarousel/owl.carousel.min.css">
@@ -19,10 +16,7 @@
 	<script src="js/Jquery/Jquery.min.js"></script>
 	<script src="js/owlcarousel/owl.carousel.min.js"></script>
 
-
-
-	<!-- our files -->
-	<!-- css -->
+	<!-- our css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/topnav.css">
 	<link rel="stylesheet" href="css/header.css">
@@ -32,21 +26,23 @@
 	<link rel="stylesheet" href="css/home_products.css">
 	<link rel="stylesheet" href="css/pagination_phantrang.css">
 	<link rel="stylesheet" href="css/footer.css">
-	<!-- js -->
+
+	<!-- our js -->
 	<script src="data/products.js"></script>
 	<script src="js/classes.js"></script>
 	<script src="js/dungchung.js"></script>
 	<script src="js/trangchu.js"></script>
-        <script type="module" src="https://edvangarde1.github.io/CHATBOT-HLS/chatbot.js" defer></script>
+</head>  <!-- ⚡️⚡️⚡️ Đóng thẻ HEAD ở đây -->
+
 <body>
-	<script> addTopNav(); </script>
+	<script>addTopNav();</script>
 
 	<section>
-		<script> addHeader(); </script>
+		<script>addHeader();</script>
 
 		<div class="banner">
 			<div class="owl-carousel owl-theme"></div>
-		</div> <!-- Kết thúc Banner -->
+		</div>
 
 		<img src="img/banners/blackFriday.gif" alt="" style="width: 100%;">
 
@@ -57,37 +53,37 @@
 			<a id="deleteAllFilter" style="display: none;">
 				<h3>Xóa bộ lọc</h3>
 			</a>
-		</div> <!-- Những bộ lọc đã chọn -->
+		</div>
+
 		<hr>
-		<!-- Mặc định mới vào trang sẽ ẩn đi, nế có filter thì mới hiện lên -->
-		<div class="contain-products" style="display:none"> 
+
+		<div class="contain-products" style="display:none">
 			<div class="filterName">
 				<input type="text" placeholder="Lọc trong trang theo tên..." onkeyup="filterProductsName(this)">
-			</div> <!-- End FilterName -->
+			</div>
 
 			<ul id="products" class="homeproduct group flexContain">
 				<div id="khongCoSanPham">
 					<i class="fa fa-times-circle"></i>
 					Không có sản phẩm nào
-				</div> <!-- End Khong co san pham -->
-			</ul><!-- End products -->
+				</div>
+			</ul>
 
 			<div class="pagination"></div>
 		</div>
 
-		<!-- Div hiển thị khung sp hot, khuyến mãi, mới ra mắt ... -->
-		<div class="contain-khungSanPham" ></div>
+		<div class="contain-khungSanPham"></div>
 
-	</section> <!-- End Section -->
+	</section>
 
-	<script>
-		addContainTaiKhoan(); addPlc();
-	</script>
+	<script>addContainTaiKhoan(); addPlc();</script>
 
 	<div class="footer"><script>addFooter();</script></div>
 
 	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
 
+	<!-- ⚡️⚡️⚡️ Gắn chatbot ở cuối trước khi đóng body -->
+	<script type="module" src="https://edvangarde1.github.io/CHATBOT-HLS/chatbot.js" defer></script>
 </body>
 
 </html>
