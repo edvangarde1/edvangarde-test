@@ -37,7 +37,60 @@
 	<script src="js/classes.js"></script>
 	<script src="js/dungchung.js"></script>
 	<script src="js/trangchu.js"></script>
+ <!-- ✅ Thêm CSS cho logo -->
+ <style>
+#chat-logo {
+  position: fixed;
+  bottom: 10px; /* trùng với JustChat */
+  right: 10px;
+  z-index: 10001; /* cao hơn JustChat */
+  cursor: pointer;
+  pointer-events: auto;
+}
 
+#chat-logo img {
+  width: 80px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+    #chat-logo:hover img {
+      transform: rotate(15deg);
+    }
+
+    #chat-logo::after {
+      content: "Nhấn để chat";
+      position: absolute;
+      right: 70px;
+      bottom: 10px;
+      background: #1E40AF;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    #chat-logo:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .shake {
+      animation: shake 0.5s;
+    }
+  </style>
 </head>
 
 <body>
@@ -87,83 +140,75 @@
 	</script>
 
 	<div class="footer"><script>addFooter();</script></div>
-	<style>
-		#goto-top-page {
-			position: fixed; /* để nó "dính" vào góc màn hình */
-			bottom: 20px;    /* cách đáy 20px */
-			left: 8px;     /* cách lề trái20px */
-			font-size: 30px; /* chỉnh kích thước icon nếu muốn */
-			cursor: pointer; /* đổi con trỏ khi hover */
-		}
-		</style>
-		
-		<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
-	
-	<script type="module" defer>
-		import Chatbot from "https://edvangarde1.github.io/chatbot/updated_embed.js";
-		Chatbot.init({
-		  "n8nChatUrl": "https://nhuan99.app.n8n.cloud/webhook/4eaf2e3a-2316-4e3a-ada4-ed8706f06238/chat",
-		  "theme": {
-			"button": {
-			  "backgroundColor": "#111173",
-			  "right": 5,
-			  "bottom": 15,
-			  "size": 65,
-			  "iconColor": "#FFFFFF",
-			  "customIconSrc": "img/logochatbot.png",
-			  "autoWindowOpen": {
-				"autoOpen": true,
-				"openDelay": 2
+
+	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+ <!-- ✅ Logo -->
+ <div id="chat-logo">
+    <img src="img/logochatbot.png" alt="Logo BKHN" />
+  </div>
+
+ 
+<!-- ✅ Script mới: dùng pointerEvents để tránh bị logo cản -->
+<script>
+	window.addEventListener("load", () => {
+	  const logo = document.getElementById("chat-logo");
+  
+	  logo.addEventListener("click", () => {
+		// 👉 Tạm thời cho phép click xuyên qua logo
+		logo.style.pointerEvents = "none";
+  
+		// 👉 Delay nhẹ để browser cập nhật pointer-events trước khi click
+		setTimeout(() => {
+		  (function tryClick(i = 0) {
+			const btn = document.querySelector(".just-chat-toggle-button");
+  
+			if (btn) {
+			  const rect = btn.getBoundingClientRect();
+			  const centerX = rect.left + rect.width / 2;
+			  const centerY = rect.top + rect.height / 2;
+			  const element = document.elementFromPoint(centerX, centerY);
+  
+			  if (element) {
+				const event = new MouseEvent("click", {
+				  view: window,
+				  bubbles: true,
+				  cancelable: true,
+				  clientX: centerX,
+				  clientY: centerY,
+				});
+				element.dispatchEvent(event);
 			  }
-			},
-			"tooltip": {
-			  "showTooltip": true,
-			  "tooltipMessage": "🤖 Xin chào bạn 👋",
-			  "tooltipBackgroundColor": "#F0F0F9",
-			  "tooltipTextColor": "#1c1c1c",
-			  "tooltipFontSize": 14
-			},
-			"chatWindow": {
-			  "showTitle": true,
-			  "title": "EDVANGARDE AGENT",
-			  "titleAvatarSrc": "img/logochatbot.png",
-			  "welcomeMessage": "Chào bạn, bạn đang cần tìm gì ạ?",
-			  "errorMessage": "This is a custom error message",
-			  "backgroundColor": "#ffffff",
-			  "height": 609,
-			  "width": 500,
-			  "fontSize": 15,
-			  "starterPrompts": [
-				"Tôi cần Bài giảng Đại số",
-				"Tôi cần Giáo trình PLĐC"
-			  ],
-			  "starterPromptFontSize": 14,
-			  "clearChatOnReload": false,
-			  "botMessage": {
-				"backgroundColor": "#F0F0F9",
-				"textColor": "#050505",
-				"showAvatar": true,
-				"avatarSrc": "img/logochatbot.png"
-			  },
-			  "userMessage": {
-				"backgroundColor": "#F0F0F9",
-				"textColor": "#050505",
-				"showAvatar": true,
-				"avatarSrc": "https://www.svgrepo.com/show/339963/chat-bot.svg"
-			  },
-			  "textInput": {
-				"placeholder": "Type your query",
-				"backgroundColor": "#ffffff",
-				"textColor": "#1e1e1f",
-				"sendButtonColor": "#111173",
-				"maxChars": 100,
-				"maxCharsWarningMessage": "Bạn đã vượt quá giới hạn ký tự. Vui lòng nhập ít hơn 100 ký tự.",
-				"autoFocus": false
-			  }
+  
+			  // 🔁 Bật lại tương tác với logo
+			  logo.style.pointerEvents = "auto";
+			} else if (i < 50) {
+			  setTimeout(() => tryClick(i + 1), 100);
+			} else {
+			  logo.style.pointerEvents = "auto";
 			}
-		  }
-		});
-	  </script>
+		  })();
+		}, 50); // 🕓 50ms là đủ để trình duyệt cập nhật pointer
+	  });
+  
+	  // ✅ Hiệu ứng rung
+	  setInterval(() => {
+		logo.classList.add("shake");
+		setTimeout(() => logo.classList.remove("shake"), 500);
+	  }, 6000);
+	});
+  </script>
+
+	  
+  <script src="https://cdn.jsdelivr.net/npm/@kieng/just-chat/dist/just-chat.umd.js"
+  data-webhook-url="https://nhuan2000100.app.n8n.cloud/webhook/chat-agent"
+  data-theme-color="#1E40AF"
+  data-position="bottom-right"
+  data-title="XIN CHÀO"
+  data-welcome-message="Mình có thể giúp gì cho bạn hôm nay?"
+  data-history-enabled="true"
+  data-history-clear-button="true"
+  defer>
+</script>
 </body>
 
 </html>
