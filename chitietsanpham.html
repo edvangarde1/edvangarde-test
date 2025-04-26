@@ -17,48 +17,7 @@
 	<link rel="stylesheet" href="js/owlcarousel/owl.theme.default.min.css">
 	<script src="js/Jquery/Jquery.min.js"></script>
     <script src="js/owlcarousel/owl.carousel.min.js"></script>
-<!-- ✅ Thêm CSS cho logo -->
-<style>
-    #chat-logo {
-      position: fixed;
-      bottom: 10px; /* trùng với JustChat */
-      right: 10px;
-      z-index: 10001; /* cao hơn JustChat */
-      cursor: pointer;
-      pointer-events: none;
-    }
-    
-    #chat-logo img {
-      width: 80px;
-      height: auto;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    
-        #chat-logo:hover img {
-          transform: rotate(15deg);
-        }
-    
-        #chat-logo::after {
-          content: "Nhấn để chat";
-          position: absolute;
-          right: 60px;
-          bottom: 10px;
-          background: #1E40AF;
-          color: white;
-          padding: 6px 10px;
-          border-radius: 8px;
-          font-size: 13px;
-          white-space: nowrap;
-          opacity: 0;
-          transition: opacity 0.3s;
-          pointer-events: none;
-        }
-    
-        #chat-logo:hover::after {
-          opacity: 1;
-        }
-</style>    
+
     <!-- our files -->
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
@@ -152,34 +111,6 @@
     <script>addContainTaiKhoan();</script>
 
     <div class="footer"><script>addFooter();</script></div>
-    <!-- ✅ Logo -->
- <div id="chat-logo">
-    <img src="img/logochatbot.png" alt="Logo BKHN" />
-  </div>
-
- 
-<!-- ✅ Script mới: dùng pointerEvents để tránh bị logo cản -->
-<script>
-    window.addEventListener("load", () => {
-      setInterval(() => {
-        const logo = document.getElementById("chat-logo");
-        logo.classList.add("shake");
-        setTimeout(() => logo.classList.remove("shake"), 500);
-      }, 6000);
-    });
-  </script>
-  
-
-    <script src="https://cdn.jsdelivr.net/npm/@kieng/just-chat/dist/just-chat.umd.js"
-    data-webhook-url="https://nhuan2000100.app.n8n.cloud/webhook/chat-agent"
-    data-theme-color="#1E40AF"
-    data-position="bottom-right"
-    data-title="XIN CHÀO"
-    data-welcome-message="Mình có thể giúp gì cho bạn hôm nay?"
-    data-history-enabled="true"
-    data-history-clear-button="true"
-    defer>
-  </script>
   <script>
     window.addEventListener("DOMContentLoaded", function () {
         const buyBtn = document.querySelector('.buy_now');
@@ -197,7 +128,32 @@
         }
     });
 </script>
-
+<style>
+    #goto-top-page {
+        position: fixed; /* để nó "dính" vào góc màn hình */
+        bottom: 20px;    /* cách đáy 20px */
+        left: 8px;     /* cách lề trái20px */
+        font-size: 30px; /* chỉnh kích thước icon nếu muốn */
+        cursor: pointer; /* đổi con trỏ khi hover */
+    }
+    </style>
+    
+    <i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+    <script>
+        if (window.innerWidth >= 1440) {
+          document.body.style.zoom = "115%";
+        }
+      </script>
+<script>
+	window.addEventListener('load', function() {
+	  setTimeout(() => {
+		const script = document.createElement('script');
+		script.type = 'module';
+		script.src = 'https://edvangarde1.github.io/CHATBOT-HLS/chatbot.js';
+		document.body.appendChild(script);
+	  }, 1000); // delay 1 giây sau khi load web
+	});
+  </script>
 </body>
 
 </html>

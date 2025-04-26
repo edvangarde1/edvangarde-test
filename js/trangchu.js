@@ -25,7 +25,7 @@ window.onload = function () {
 	autocomplete(document.getElementById('search-box'), list_products);
 
 	// thêm tags (từ khóa) vào khung tìm kiếm
-	var tags = ["Giải tích", "Đại số", "Giáo trình", "Bài giảng"];
+	var tags = ["Giải tích", "Vật lý", "Giáo trình", "Bài giảng"];
 	for (var t of tags) addTags(t, "index.html?search=" + t);
 
 

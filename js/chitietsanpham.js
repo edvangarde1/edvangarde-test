@@ -6,7 +6,7 @@ window.onload = function () {
     khoiTao();
 
     // thêm tags (từ khóa) vào khung tìm kiếm
-    var tags = ["Giải tích", "Đại số", "Giáo trình", "Tuyển sinh Edtech"];
+    var tags = ["Giải tích", "Vật lý", "Giáo trình", "Bài giảng"];
     for (var t of tags) addTags(t, "index.html?search=" + t, true);
 
     phanTich_URL_chiTietSanPham();
@@ -57,7 +57,7 @@ function phanTich_URL_chiTietSanPham() {
                 rating += `<i class="fa fa-star-o"></i>`
             }
         }
-        rating += `<span> ` + sanPhamHienTai.rateCount + ` đánh giá</span>`;
+       // rating += `<span> ` + sanPhamHienTai.rateCount + ` đánh giá</span>`;
     }
     divChiTiet.getElementsByClassName('rating')[0].innerHTML += rating;
 
