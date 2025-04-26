@@ -83,7 +83,71 @@
 	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
 
 	<!-- ⚡️⚡️⚡️ Gắn chatbot ở cuối trước khi đóng body -->
-	<script type="module" src="https://edvangarde1.github.io/CHATBOT-HLS/chatbot.js" defer></script>
+			<script type="module" defer>
+  import Chatbot from "https://edvangarde1.github.io/chatbot/updated_embed.js";
+  Chatbot.init({
+    "n8nChatUrl": "https://nhuan2000100.app.n8n.cloud/webhook/f43f8323-d171-4c8a-aea5-33ef20b29d63/chat",
+    "theme": {
+      "button": {
+        "backgroundColor": "#ffc8b9",
+        "right": 20,
+        "bottom": 20,
+        "size": 50,
+        "iconColor": "#373434",
+        "customIconSrc": "",
+        "autoWindowOpen": {
+          "autoOpen": true,
+          "openDelay": 2
+        }
+      },
+      "tooltip": {
+        "showTooltip": true,
+        "tooltipMessage": "Xin chào 👋 tôi có thể giúp gì cho bạn ạ!",
+        "tooltipBackgroundColor": "#ffc8b8",
+        "tooltipTextColor": "#1c1c1c",
+        "tooltipFontSize": 17
+      },
+      "chatWindow": {
+        "showTitle": true,
+        "title": "EDVANGARDE",
+        "titleAvatarSrc": "",
+        "welcomeMessage": "Xin chào!",
+        "errorMessage": "This is a custom error message",
+        "backgroundColor": "#ffffff",
+        "height": 600,
+        "width": 400,
+        "fontSize": 16,
+        "starterPrompts": [
+          "Tôi cần sách giải tích?",
+          "Tôi cần tư vấn tuyển sin?"
+        ],
+        "starterPromptFontSize": 15,
+        "clearChatOnReload": false,
+        "botMessage": {
+          "backgroundColor": "#f36539",
+          "textColor": "#fafafa",
+          "showAvatar": true,
+          "avatarSrc": ""
+        },
+        "userMessage": {
+          "backgroundColor": "#fff6f3",
+          "textColor": "#050505",
+          "showAvatar": true,
+          "avatarSrc": ""
+        },
+        "textInput": {
+          "placeholder": "Type your query",
+          "backgroundColor": "#ffffff",
+          "textColor": "#1e1e1f",
+          "sendButtonColor": "#f36539",
+          "maxChars": 100,
+          "maxCharsWarningMessage": "Vui lòng chỉ nhắn tối đa 100 ký tự.",
+          "autoFocus": false
+        }
+      }
+    }
+  });
+</script>
 </body>
 
 </html>
