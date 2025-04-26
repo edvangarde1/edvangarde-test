@@ -190,7 +190,7 @@ var list_products = [{
     "masp": "App8"
 
 }, {
-    "name": "Hướng dẫn giải bài tập Kinh tế chính trị Mác Lênin (2021)",
+    "name": "Hướng dẫn làm bài tập Kinh tế chính trị Mác Lênin (2021)",
     "company": "Apple",
     "img": "img/products/9.png",
     "price": "Free",
