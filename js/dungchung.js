@@ -95,7 +95,7 @@ function addEventCloseAlertButton() {
 // ================ Cart Number + Thêm vào Giỏ hàng ======================
 function animateCartNumber() {
     // Hiệu ứng cho icon giỏ hàng
-    var cn = document.getElementsByClassName('cart-number')[0];
+    var cn = document.getElementsByClassName('')[0];
     cn.style.transform = 'scale(2)';
     cn.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
     cn.style.color = 'white';
@@ -109,8 +109,8 @@ function animateCartNumber() {
 function themVaoGioHang(masp, tensp) {
     var user = getCurrentUser();
     if (!user) {
-        alert('Bạn cần đăng nhập để mua hàng !');
-        showTaiKhoan(true);
+        //alert('Bạn cần đăng nhập để mua hàng !');
+       // showTaiKhoan(true);
         return;
     }
     if (user.off) {
@@ -138,7 +138,7 @@ function themVaoGioHang(masp, tensp) {
     }
 
     animateCartNumber();
-    addAlertBox('Đã thêm ' + tensp + ' vào giỏ.', '#17c671', '#fff', 3500);
+   // addAlertBox('Đã thêm ' + tensp + ' vào giỏ.', '#17c671', '#fff', 3500);
 
     setCurrentUser(user); // cập nhật giỏ hàng cho user hiện tại
     updateListUser(user); // cập nhật list user
@@ -515,29 +515,7 @@ function addProduct(p, ele, returnString) {
 	return addToWeb(product, ele, returnString);
 }
 
-// Thêm topnav vào trang
-function addTopNav() {
-    document.write(`    
-	<div class="top-nav group">
-        <section>
-            <div class="social-top-nav">
-                <a class="fa fa-facebook"></a>
-                <a class="fa fa-twitter"></a>
-                <a class="fa fa-google"></a>
-                <a class="fa fa-youtube"></a>
-            </div> <!-- End Social Topnav -->
 
-            <ul class="top-nav-quicklink flexContain">
-                <li><a href="index.html"><i class="fa fa-home"></i> Trang chủ</a></li>
-                <li><a href="index.html"><i class="fa fa-newspaper-o"></i> Tin tức</a></li>
-                <li><a href="index.html"><i class="fa fa-handshake-o"></i> Tuyển dụng</a></li>
-                <li><a href="index.html"><i class="fa fa-info-circle"></i> Giới thiệu</a></li>
-                <li><a href="index.html"><i class="fa fa-wrench"></i> Bảo hành</a></li>
-                <li><a href="lienhe.html"><i class="fa fa-phone"></i> Liên hệ</a></li>
-            </ul> <!-- End Quick link -->
-        </section><!-- End Section -->
-    </div><!-- End Top Nav  -->`);
-}
 
 // Thêm header
 function addHeader() {
